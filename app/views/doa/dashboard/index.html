@@ -1,0 +1,51 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">Darling Building Services Ltd</h1>
+        <h2 class="govuk-heading-l">Agents</h2>
+        <p class="govuk-body">You have not yet added any agents to act on your behalf.</p>
+        <button class="govuk-button" data-module="govuk-button">
+  Add an agent
+</button>
+
+        <h2 class="govuk-heading-l govuk-!-margin-top-6">Traders</h2>
+        <p class="govuk-body">Traders are importers and exporters you represent as an agent.</p>
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Organisation Name</th>
+              <th scope="col" class="govuk-table__header">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            {% if activetraders %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">London Trading Company</td>
+              <td class="govuk-table__cell"><a href="/doa/traders/">View permissions</a><br/><a href="/doa//traders/remove">Remove association</a></td>
+            </tr>
+            {% endif %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Exports 123</td>
+              <td class="govuk-table__cell"><a href="javascript:alert('Not in prototype!')">View permissions</a><br/><a href="javascript:alert('Not in prototype!')">Remove association</a></td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+
+
+
+    </div>
+  </div>
+
+{% endblock %}
