@@ -13,9 +13,12 @@
         <h1 class="govuk-heading-xl">Darling Building Services Ltd</h1>
         <h2 class="govuk-heading-l">Agents</h2>
         <p class="govuk-body">You have not yet added any agents to act on your behalf.</p>
+        <form action="/doa/agents/add" method="POST">
+          <input type="hidden" name="name" value=""/>
         <button class="govuk-button" data-module="govuk-button">
   Add an agent
 </button>
+</form>
 
         <h2 class="govuk-heading-l govuk-!-margin-top-6">Traders</h2>
         <p class="govuk-body">Traders are importers and exporters you represent as an agent.</p>

@@ -1,0 +1,31 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">Darling Building Services Ltd</h1>
+        <h2 class="govuk-heading-l">Add an agent</h2>
+        <form action="/doa/agents/add" method="POST">
+          <input type="hidden" name="name" value=""/>
+
+        <button class="govuk-button" data-module="govuk-button">
+  Save and continue
+</button>
+</form>
+
+      </div>
+
+
+
+
+    </div>
+  </div>
+
+{% endblock %}
