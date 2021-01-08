@@ -9,16 +9,36 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-        <h1 class="govuk-heading-xl">Darling Building Services Ltd</h1>
+      <span class="govuk-caption-l">
+      Darling Building Services Ltd
+      </span>
+        <h1 class="govuk-heading-xl">Mangage trade partners</h1>
         <h2 class="govuk-heading-l">Agents</h2>
-        <p class="govuk-body">You have not yet added any agents to act on your behalf.</p>
-        <form action="/doa/agents/add" method="POST">
-          <input type="hidden" name="name" value=""/>
-        <button class="govuk-button" data-module="govuk-button">
-  Add an agent
+
+  {% if agentadded %}
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Organisation Name</th>
+      <th scope="col" class="govuk-table__header">Actions</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">London Trading Company</td>
+      <td class="govuk-table__cell"><a href="/doa/agents/view-permissions">Manage permissions</a><br/><a href="/doa//traders/remove">Remove association</a></td>
+    </tr>
+  </tbody>
+</table>
+ {% else %}
+<p class="govuk-body">You have not yet added any agents to act on your behalf.</p>
+<form action="/doa/add-agent" method="POST">
+  <input type="hidden" name="name" value=""/>
+<button class="govuk-button" data-module="govuk-button">
+Add an agent
 </button>
 </form>
+{% endif %}
 
         <h2 class="govuk-heading-l govuk-!-margin-top-6">Traders</h2>
         <p class="govuk-body">Traders are importers and exporters you represent as an agent.</p>
@@ -32,8 +52,8 @@
           <tbody class="govuk-table__body">
             {% if activetraders %}
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">London Trading Company</td>
-              <td class="govuk-table__cell"><a href="/doa/traders/">View permissions</a><br/><a href="/doa//traders/remove">Remove association</a></td>
+              <td class="govuk-table__cell">Exporter Services</td>
+              <td class="govuk-table__cell"><a href="/doa/traders/">View permissions</a><br/><a href="/doa/traders/remove">Remove association</a></td>
             </tr>
             {% endif %}
             <tr class="govuk-table__row">

@@ -13,7 +13,7 @@
       <span class="govuk-caption-l">
       Darling Building Services Ltd
       </span>
-        <h1 class="govuk-heading-xl">View permissions</h1>
+        <h1 class="govuk-heading-xl">Manage permissions</h1>
         <span class="govuk-caption-l">
         Permissions to act on behalf of
         </span>
@@ -29,22 +29,23 @@
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">Imports of products, animals, food and feed service</td>
-      <td class="govuk-table__cell">Allowed</td>
+      <td class="govuk-table__cell">{{ data['set-permissions-imports'] }}</td>
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">Apply for a phytosanitary certificate</td>
-      <td class="govuk-table__cell">Denied</td>
+      <td class="govuk-table__cell">{{ data['set-permissions-phytosanitary'] }}</td>
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell">Export health certificates</td>
-      <td class="govuk-table__cell">Allowed</td>
+      <td class="govuk-table__cell">{{ data['set-permissions-ehc'] }}</td>
     </tr>
   </tbody>
 </table>
+<p class="govuk-body"><a href="/doa/agents/edit-permissions">Edit permissions</p>
 <input type="hidden" name="name" value=""/>
 
-          <button class="govuk-button" data-module="govuk-button">
-            Continue
+          <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">
+            Save and continue
           </button>
 </form>
       </div>
