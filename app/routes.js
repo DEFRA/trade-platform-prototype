@@ -50,6 +50,22 @@ router.post('/doa/agents/set-permissions', function (req, res) {
   res.redirect('/doa/dashboard/index')
 })
 
+router.post('/doa/agents/edit-permissions', function (req, res) {
+  res.redirect('/doa/agents/view-permissions')
+})
+
+//REMOVE an agent
+router.post('/delete-agent', function (req, res) {
+  if (req.session.data['remove-agent-association']=="yes"){
+    agentadded= false;
+  }
+  else {
+    agentadded= true;
+  }
+  res.redirect('/doa/dashboard/index')
+})
+
+
 
 
 module.exports = router

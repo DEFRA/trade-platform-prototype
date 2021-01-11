@@ -25,11 +25,12 @@
   </thead>
   <tbody class="govuk-table__body">
     <tr class="govuk-table__row">
-      <td class="govuk-table__cell">London Trading Company</td>
-      <td class="govuk-table__cell"><a href="/doa/agents/view-permissions">Manage permissions</a><br/><a href="/doa//traders/remove">Remove association</a></td>
+      <td class="govuk-table__cell">Exports UK</td>
+      <td class="govuk-table__cell"><a href="/doa/agents/view-permissions">Manage permissions</a><br/><a href="/doa/agents/remove">Remove association</a></td>
     </tr>
   </tbody>
 </table>
+<p class="govuk-body"><a href="javascript:alert('Not in prototype!');">Add an agent</a></p>
  {% else %}
 <p class="govuk-body">You have not yet added any agents to act on your behalf.</p>
 <form action="/doa/add-agent" method="POST">
@@ -52,7 +53,7 @@ Add an agent
           <tbody class="govuk-table__body">
             {% if activetraders %}
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">Exporter Services</td>
+              <td class="govuk-table__cell">London Trading Company</td>
               <td class="govuk-table__cell"><a href="/doa/traders/">View permissions</a><br/><a href="/doa/traders/remove">Remove association</a></td>
             </tr>
             {% endif %}
