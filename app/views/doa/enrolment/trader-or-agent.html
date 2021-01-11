@@ -1,0 +1,58 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-form-group">
+        <form action="/organisation-type" method="POST">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+
+            <h1 class="govuk-fieldset__heading">
+              What type of organisation is Darling Building Services Ltd?
+            </h1>
+          </legend>
+          <div id="waste-hint" class="govuk-hint">
+            Select all that apply.
+          </div>
+          <div class="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="organisation-type-agent" name="organisation-type-selection" type="checkbox" value="Agent">
+              <label class="govuk-label govuk-checkboxes__label" for="organisation-type-agent">
+                Agent
+              </label>
+              <div id="organisation-type-agent-hint" class="govuk-hint govuk-checkboxes__hint">
+          We act behalf of traders who import or export products
+        </div>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="organisation-type-trader" name="organisation-type-selection" type="checkbox" value="Trader">
+              <label class="govuk-label govuk-checkboxes__label" for="organisation-type-trader">
+                Trader
+              </label>
+              <div id="organisation-type-trader-hint" class="govuk-hint govuk-checkboxes__hint">
+          We import or export products
+        </div>
+            </div>
+          </div>
+
+        </fieldset>
+
+      </div>
+      <input type="hidden" name="name" value=""/>
+
+                <button class="govuk-button" data-module="govuk-button">
+                  Save and continue
+                </button>
+</form>
+
+    </div>
+  </div>
+
+{% endblock %}

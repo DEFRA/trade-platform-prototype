@@ -4,15 +4,17 @@ const router = express.Router()
 var activetraders;
 var searchresults; //to show and hide agent search results
 var agentadded; //to show hide added agents on dashboard
+var agent;
+var trader;
+var organisationtype = [];
 // Add your routes here - above the module.exports line
 
 //DOA ROUTES
 //Before you Start
-router.get('/doa/index', function (req, res) {
+router.get('/doa/enrolment/trader-or-agent', function (req, res) {
   activetraders=true; //shows the additional trader when added
   agentadded=false; //set no agents added for initial load
-
-  res.render('doa/index', { activetraders, agentadded })
+  res.render('doa/enrolment/trader-or-agent', { activetraders, agentadded })
 })
 //REMOVE A Trader
 router.post('/delete-trader', function (req, res) {
@@ -26,7 +28,7 @@ router.post('/delete-trader', function (req, res) {
 })
 
 router.get('/doa/dashboard/index', function (req, res) {
-  res.render('doa/dashboard/index', { activetraders, agentadded })
+  res.render('doa/dashboard/index', { activetraders, agentadded, agent, trader })
 })
 
 //ADD an agent
@@ -65,7 +67,39 @@ router.post('/delete-agent', function (req, res) {
   res.redirect('/doa/dashboard/index')
 })
 
+//PREFERENCES
+router.post('/organisation-type', function (req, res) {
+  organisationtype = req.session.data ['organisation-type-selection'];
+  agent = organisationtype.includes("Agent");
+  trader = organisationtype.includes("Trader");
+  if (trader==true && agent==true) {
+    res.redirect('/doa/enrolment/agent-agreement')
+  }
+  if (trader==true && agent==false){
+    res.redirect('/doa/enrolment/trader-agreement')
+  }
+  if (trader==false && agent==true){
+    res.redirect('/doa/enrolment/agent-agreement')
+  }
+})
 
+router.post('/doa/enrolment/agent-agreement', function (req, res) {
+  if (trader==true){
+    res.redirect('/doa/enrolment/trader-agreement')
+  }
+  else {
+    res.redirect('/doa/enrolment/auto-accept')
+  }
+})
+
+//Edit preferences
+router.post('/edit-organisation-type', function (req, res) {
+  organisationtype = req.session.data ['organisation-type-selection'];
+  agent = organisationtype.includes("Agent");
+  trader = organisationtype.includes("Trader");
+  console.log(organisationtype);
+    res.redirect('/doa/dashboard/index')
+})
 
 
 module.exports = router

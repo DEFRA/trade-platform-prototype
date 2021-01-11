@@ -13,6 +13,8 @@
       Darling Building Services Ltd
       </span>
         <h1 class="govuk-heading-xl">Mangage trade partners</h1>
+
+        {% if trader %}
         <h2 class="govuk-heading-l">Agents</h2>
 
   {% if agentadded %}
@@ -40,7 +42,9 @@ Add an agent
 </button>
 </form>
 {% endif %}
+{% endif %}
 
+  {% if agent %}
         <h2 class="govuk-heading-l govuk-!-margin-top-6">Traders</h2>
         <p class="govuk-body">Traders are importers and exporters you represent as an agent.</p>
         <table class="govuk-table">
@@ -63,7 +67,22 @@ Add an agent
             </tr>
           </tbody>
         </table>
-
+{% endif %}
+<h2 class="govuk-heading-l govuk-!-margin-top-8">Preferences</h2>
+<table class="govuk-table">
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Organisation type</th>
+      <td class="govuk-table__cell">{{ data['organisation-type-selection'] }}</td>
+      <td class="govuk-table__cell"><a href="/doa/enrolment/edit-trader-or-agent">Change</a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Automatic delegation</th>
+      <td class="govuk-table__cell">{{ data['auto-accept-delegation'] }}</td>
+      <td class="govuk-table__cell"><a href="/doa/enrolment/edit-auto-accept">Change</a></td>
+    </tr>
+  </tbody>
+</table>
       </div>
 
 
