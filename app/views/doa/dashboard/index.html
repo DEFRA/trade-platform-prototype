@@ -76,11 +76,13 @@ Add an agent
       <td class="govuk-table__cell">{{ data['organisation-type-selection'] }}</td>
       <td class="govuk-table__cell"><a href="/doa/enrolment/edit-trader-or-agent">Change</a></td>
     </tr>
+    {% if agent %}
     <tr class="govuk-table__row">
       <th scope="col" class="govuk-table__header">Automatic delegation</th>
       <td class="govuk-table__cell">{{ data['auto-accept-delegation'] }}</td>
       <td class="govuk-table__cell"><a href="/doa/enrolment/edit-auto-accept">Change</a></td>
     </tr>
+    {% endif %}
   </tbody>
 </table>
       </div>

@@ -92,6 +92,15 @@ router.post('/doa/enrolment/agent-agreement', function (req, res) {
   }
 })
 
+router.post('/doa/enrolment/trader-agreement', function (req, res) {
+  if (agent==true){
+    res.redirect('/doa/enrolment/auto-accept')
+  }
+  else {
+    res.redirect('/doa/dashboard/index')
+  }
+})
+
 //Edit preferences
 router.post('/edit-organisation-type', function (req, res) {
   organisationtype = req.session.data ['organisation-type-selection'];
