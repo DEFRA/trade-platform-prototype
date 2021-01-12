@@ -15,7 +15,7 @@
         <h1 class="govuk-heading-xl">Manage trade partners</h1>
 
 
-        <h2 class="govuk-heading-l">Organisations acting on your behalf</h2>
+        <h2 class="govuk-heading-l">Agents acting on your behalf</h2>
 
   {% if agentadded %}
 <table class="govuk-table">
@@ -32,13 +32,13 @@
     </tr>
   </tbody>
 </table>
-<p class="govuk-body"><a href="javascript:alert('Not in prototype!');">Add an organisation</a></p>
+<p class="govuk-body"><a href="javascript:alert('Not in prototype!');">Add an agent</a></p>
  {% else %}
-<p class="govuk-body">You have not yet added any organisations.</p>
+<p class="govuk-body">You have not yet added any agents.</p>
 <form action="/doa/add-agent" method="POST">
   <input type="hidden" name="name" value=""/>
 <button class="govuk-button" data-module="govuk-button">
-Add an organisation
+Add an agent
 </button>
 </form>
 {% endif %}
@@ -66,24 +66,9 @@ Add an organisation
             </tr>
           </tbody>
         </table>
+        <p><a href="/doa/enrolment/edit-auto-accept">Manage delegation preferences</a></p>
 {% endif %}
-<h2 class="govuk-heading-l govuk-!-margin-top-8">Preferences</h2>
-<table class="govuk-table">
-  <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">Organisation type</th>
-      <td class="govuk-table__cell">{{ data['organisation-type-selection'] }}</td>
-      <td class="govuk-table__cell"><a href="/doa/enrolment/edit-trader-or-agent">Change</a></td>
-    </tr>
-    {% if agent %}
-    <tr class="govuk-table__row">
-      <th scope="col" class="govuk-table__header">Automatic delegation</th>
-      <td class="govuk-table__cell">{{ data['auto-accept-delegation'] }}</td>
-      <td class="govuk-table__cell"><a href="/doa/enrolment/edit-auto-accept">Change</a></td>
-    </tr>
-    {% endif %}
-  </tbody>
-</table>
+
       </div>
 
 
