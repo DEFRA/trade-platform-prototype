@@ -14,8 +14,8 @@
       </span>
         <h1 class="govuk-heading-xl">Manage trade partners</h1>
 
-        {% if trader %}
-        <h2 class="govuk-heading-l">Agents</h2>
+
+        <h2 class="govuk-heading-l">Organisations acting on your behalf</h2>
 
   {% if agentadded %}
 <table class="govuk-table">
@@ -32,21 +32,20 @@
     </tr>
   </tbody>
 </table>
-<p class="govuk-body"><a href="javascript:alert('Not in prototype!');">Add an agent</a></p>
+<p class="govuk-body"><a href="javascript:alert('Not in prototype!');">Add an organisation</a></p>
  {% else %}
-<p class="govuk-body">You have not yet added any agents to act on your behalf.</p>
+<p class="govuk-body">You have not yet added any organisations.</p>
 <form action="/doa/add-agent" method="POST">
   <input type="hidden" name="name" value=""/>
 <button class="govuk-button" data-module="govuk-button">
-Add an agent
+Add an organisation
 </button>
 </form>
 {% endif %}
-{% endif %}
+
 
   {% if agent %}
-        <h2 class="govuk-heading-l govuk-!-margin-top-6">Traders</h2>
-        <p class="govuk-body">Traders are importers and exporters you represent as an agent.</p>
+        <h2 class="govuk-heading-l govuk-!-margin-top-6">Importers and exporters you represent</h2>
         <table class="govuk-table">
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">

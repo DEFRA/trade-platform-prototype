@@ -7,6 +7,7 @@ var agentadded; //to show hide added agents on dashboard
 var agent;
 var trader;
 var organisationtype = [];
+var actasagent;
 // Add your routes here - above the module.exports line
 
 //DOA ROUTES
@@ -15,6 +16,11 @@ router.get('/doa/enrolment/trader-or-agent', function (req, res) {
   activetraders=true; //shows the additional trader when added
   agentadded=false; //set no agents added for initial load
   res.render('doa/enrolment/trader-or-agent', { activetraders, agentadded })
+})
+router.get('/doa/enrolment/act-as-agent', function (req, res) {
+  activetraders=true; //shows the additional trader when added
+  agentadded=false; //set no agents added for initial load
+  res.render('doa/enrolment/act-as-agent', { activetraders, agentadded })
 })
 //REMOVE A Trader
 router.post('/delete-trader', function (req, res) {
@@ -83,18 +89,32 @@ router.post('/organisation-type', function (req, res) {
   }
 })
 
-router.post('/doa/enrolment/agent-agreement', function (req, res) {
-  if (trader==true){
+router.post('/set-organisation-type', function (req, res) {
+  actasagent = req.session.data ['act-as-agent'];
+  if (actasagent == "Yes"){
+    agent = true;
+    trader = true;
+    console.log(agent);
+    console.log(trader);
     res.redirect('/doa/enrolment/trader-agreement')
   }
   else {
-    res.redirect('/doa/enrolment/auto-accept')
+    agent = false;
+    trader = true;
+    console.log(agent);
+    console.log(trader);
+    res.redirect('/doa/enrolment/trader-agreement')
   }
+})
+
+router.post('/doa/enrolment/agent-agreement', function (req, res) {
+  res.redirect('/doa/enrolment/auto-accept')
+
 })
 
 router.post('/doa/enrolment/trader-agreement', function (req, res) {
   if (agent==true){
-    res.redirect('/doa/enrolment/auto-accept')
+    res.redirect('/doa/enrolment/agent-agreement')
   }
   else {
     res.redirect('/doa/dashboard/index')
