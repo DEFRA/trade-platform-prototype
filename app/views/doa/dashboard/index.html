@@ -49,7 +49,7 @@ Add an agent
         <table class="govuk-table">
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header">Organisation Name</th>
+              <th scope="col" class="govuk-table__header">Organisation name</th>
               <th scope="col" class="govuk-table__header">Actions</th>
             </tr>
           </thead>
@@ -66,7 +66,29 @@ Add an agent
             </tr>
           </tbody>
         </table>
-        <p><a href="/doa/enrolment/edit-auto-accept">Manage delegation preferences</a></p>
+{% if reviewmanually %}
+        <h2 class="govuk-heading-m govuk-!-margin-top-6">Requests for representation</h2>
+
+        {% if activerequests %}
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Organisation name</th>
+              <th scope="col" class="govuk-table__header">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Mega Importers</td>
+              <td class="govuk-table__cell"><a href="/doa/requests/review">Review request</a></td>
+            </tr>
+          </tbody>
+        </table>
+        {% else %}
+        <p class="govuk-body">You have no requests to represent an organisation. </p>
+        {% endif %}
+{% endif %}
+        <p><a href="/doa/enrolment/edit-auto-accept">Manage request preferences</a></p>
 {% endif %}
 
       </div>

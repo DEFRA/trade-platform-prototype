@@ -8,6 +8,8 @@ var agent;
 var trader;
 var organisationtype = [];
 var actasagent;
+var activerequests;
+var reviewmanually;
 // Add your routes here - above the module.exports line
 
 //DOA ROUTES
@@ -15,11 +17,13 @@ var actasagent;
 router.get('/doa/enrolment/trader-or-agent', function (req, res) {
   activetraders=true; //shows the additional trader when added
   agentadded=false; //set no agents added for initial load
+  activerequests=true;
   res.render('doa/enrolment/trader-or-agent', { activetraders, agentadded })
 })
 router.get('/doa/enrolment/act-as-agent', function (req, res) {
   activetraders=true; //shows the additional trader when added
   agentadded=false; //set no agents added for initial load
+  activerequests=true;
   res.render('doa/enrolment/act-as-agent', { activetraders, agentadded })
 })
 //REMOVE A Trader
@@ -34,7 +38,7 @@ router.post('/delete-trader', function (req, res) {
 })
 
 router.get('/doa/dashboard/index', function (req, res) {
-  res.render('doa/dashboard/index', { activetraders, agentadded, agent, trader })
+  res.render('doa/dashboard/index', { activetraders, agentadded, agent, trader, activerequests, reviewmanually })
 })
 
 //ADD an agent
@@ -130,5 +134,24 @@ router.post('/edit-organisation-type', function (req, res) {
     res.redirect('/doa/dashboard/index')
 })
 
+//Representation requests
+router.post('/review-representation', function (req, res) {
+activerequests = false;
+    res.redirect('/doa/dashboard/index')
+})
+
+router.post('/auto-accept', function (req, res) {
+  if (req.session.data['auto-accept-delegation']=="Yes"){
+    activerequests = false;
+    reviewmanually = false;
+  }
+  else {
+    activerequests = true;
+    reviewmanually = true;
+  }
+  console.log(activerequests);
+  console.log(reviewmanually);
+    res.redirect('/doa/dashboard/index')
+})
 
 module.exports = router
