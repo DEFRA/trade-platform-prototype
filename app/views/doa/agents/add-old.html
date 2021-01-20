@@ -1,0 +1,236 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+<style type="text/css">
+  .gem-c-document-list__item {
+    overflow: hidden;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #b1b4b6;
+    list-style: none;
+}
+  .gem-c-document-list {
+      color: #0b0c0c;
+      font-family: "nta",arial,sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.25;
+      margin: 0;
+      padding: 0;
+  }
+  .gem-c-document-list--no-underline .gem-c-document-list__item-title {
+    text-decoration: none;
+}
+.gem-c-document-list__item-link:visited {
+    color: #4c2c92;
+}
+.gem-c-document-list__item-link:link {
+    color: #1d70b8;
+}
+@media (min-width: 40.0625em)
+.gem-c-document-list__item-title {
+    font-size: 19px;
+    line-height: 1.3157894737;
+}
+.gem-c-document-list__item-title {
+    font-family: "nta",arial,sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.25;
+    display: inline-block;
+}
+.gem-c-document-list__item-description{
+  font-size: 16px;
+    line-height: 1.5;
+}
+  .search_wrapper {
+    display: table;
+    width: 100%;
+    margin-bottom: 1rem;
+    background: #fff;
+}
+.search_table_row {
+    display: table-row;
+}
+  .search_item {
+      position: relative;
+      display: table-cell;
+
+      height: 50px;
+  }
+  .search_input {
+    border: solid 1px #bfc1c3;
+    border-right: 0;
+    z-index: 1000;
+}
+.search_button_container {
+    position: relative;
+    display: table-cell;
+
+    height: 50px;
+    width: 50px;
+}
+.search_button {
+    background-color: #1d70b8;
+    margin-top: -50px;
+    background-position: 7px 50%;
+    background-image: url(https://www.findpensioncontacts.service.gov.uk/assets/images/search-button.png);
+    background-repeat: no-repeat;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+    text-indent: -5000px;
+    overflow: hidden;
+    position: relative;
+    top: -3px;
+
+}
+
+button {
+    appearance: button;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    background-color: -internal-light-dark(rgb(239, 239, 239), rgb(59, 59, 59));
+    box-sizing: border-box;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+}
+input {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: textfield;
+    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 2px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial;
+}
+  </style>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">
+      Darling Building Services Ltd
+      </span>
+        <h1 class="govuk-heading-xl">Add an agent</h1>
+
+        <div class="search_wrapper">
+                    <div class="search_table_row">
+
+
+        <div class="govuk-form-group">
+
+
+
+          <input class="govuk-input search_item search_input" id="searchinput" name="searchinput" type="text" aria-label="Search for a personal pension">
+        </div>
+
+
+                        <div class="search_button_container">
+                          <form action="/doa/agents/add" method="POST">
+                            <input type="hidden" name="name" value=""/>
+                          <button type="submit" class="search_button">search.button</button>
+                          </form>
+                        </div>
+                      </div>
+                  </div>
+
+{% if searchresults %}
+<p class="govuk-body">Select the agent you want to add.</p>
+                  <div class="finder-results">
+      <ul class="gem-c-document-list gem-c-document-list--no-underline">
+      <li class="gem-c-document-list__item  ">
+
+        <a  class="gem-c-document-list__item-title   gem-c-document-list__item-link" href="/doa/agents/set-permissions">Exports UK</a>
+
+
+          <p class="gem-c-document-list__item-description">Status: Verified</p>
+
+          <ul class="gem-c-document-list__item-metadata">
+          </ul>
+
+
+      </li>
+      <ul class="gem-c-document-list gem-c-document-list--no-underline">
+      <li class="gem-c-document-list__item  ">
+
+        <a  class="gem-c-document-list__item-title   gem-c-document-list__item-link" href="javascript:alert('Not in prototype!')">Exporter Services Ltd</a>
+
+
+          <p class="gem-c-document-list__item-description">Status: Verified</p>
+
+          <ul class="gem-c-document-list__item-metadata">
+          </ul>
+
+
+      </li>
+
+      <ul class="gem-c-document-list gem-c-document-list--no-underline">
+      <li class="gem-c-document-list__item  ">
+
+        <a  class="gem-c-document-list__item-title   gem-c-document-list__item-link" href="javascript:alert('Not in prototype!')">Exports London Ltd</a>
+
+
+          <p class="gem-c-document-list__item-description">Status: Verified</p>
+
+          <ul class="gem-c-document-list__item-metadata">
+          </ul>
+
+
+      </li>
+          </div>
+          {% endif %}
+
+
+
+      </div>
+
+
+
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -66,6 +66,19 @@ router.post('/doa/agents/edit-permissions', function (req, res) {
   res.redirect('/doa/agents/view-permissions')
 })
 
+//Add agent new
+router.post('/doa-add-agent', function (req, res) {
+  if (req.session.data['add-agent-association']=="yes"){
+    agentadded= true;
+    res.redirect('/doa/agents/set-permissions')
+  }
+  else {
+    agentadded= false;
+    res.redirect('/doa/dashboard/index')
+  }
+
+})
+
 //REMOVE an agent
 router.post('/delete-agent', function (req, res) {
   if (req.session.data['remove-agent-association']=="yes"){
@@ -149,8 +162,6 @@ router.post('/auto-accept', function (req, res) {
     activerequests = true;
     reviewmanually = true;
   }
-  console.log(activerequests);
-  console.log(reviewmanually);
     res.redirect('/doa/dashboard/index')
 })
 
