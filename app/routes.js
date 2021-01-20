@@ -161,8 +161,9 @@ router.post('/auto-accept', function (req, res) {
   else {
     activerequests = true;
     reviewmanually = true;
+
   }
-    res.redirect('/doa/dashboard/index')
+    res.redirect('/doa/enrolment/agent-code')
 })
 
 module.exports = router
