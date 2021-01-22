@@ -96,7 +96,7 @@ router.post('/organisation-type', function (req, res) {
   agent = organisationtype.includes("Agent");
   trader = organisationtype.includes("Trader");
   if (trader==true && agent==true) {
-    res.redirect('/doa/enrolment/agent-agreement')
+    res.redirect('/doa/enrolment/trader-agreement')
   }
   if (trader==true && agent==false){
     res.redirect('/doa/enrolment/trader-agreement')

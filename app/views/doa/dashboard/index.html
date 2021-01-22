@@ -14,7 +14,7 @@
       </span>
         <h1 class="govuk-heading-xl">Manage your trade partners</h1>
 
-
+{% if trader %}
         <h2 class="govuk-heading-l">Agents acting on your behalf</h2>
 
   {% if agentadded %}
@@ -42,7 +42,7 @@ Add an agent
 </button>
 </form>
 {% endif %}
-
+{% endif %}
 
   {% if agent %}
         <h2 class="govuk-heading-l govuk-!-margin-top-6">Importers and exporters you represent</h2>
