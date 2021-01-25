@@ -59,7 +59,7 @@ router.get('/doa/agents/searchresults', function (req, res) {
 router.post('/doa/agents/set-permissions', function (req, res) {
   req.session.agentadded = true;
   agentadded = true;
-  res.redirect('/doa/dashboard/index')
+  res.redirect('/doa/agents/disclaimer')
 })
 
 router.post('/doa/agents/edit-permissions', function (req, res) {
@@ -96,10 +96,10 @@ router.post('/organisation-type', function (req, res) {
   agent = organisationtype.includes("Agent");
   trader = organisationtype.includes("Trader");
   if (trader==true && agent==true) {
-    res.redirect('/doa/enrolment/trader-agreement')
+    res.redirect('/doa/enrolment/agent-agreement')
   }
   if (trader==true && agent==false){
-    res.redirect('/doa/enrolment/trader-agreement')
+    res.redirect('/doa/dashboard/index')
   }
   if (trader==false && agent==true){
     res.redirect('/doa/enrolment/agent-agreement')
