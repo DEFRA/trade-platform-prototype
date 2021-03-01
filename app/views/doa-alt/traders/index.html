@@ -1,0 +1,58 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">
+      Darling Building Services Ltd
+      </span>
+        <h1 class="govuk-heading-xl">View permissions</h1>
+        <span class="govuk-caption-l">
+        Permissions to act on behalf of
+        </span>
+        <h2 class="govuk-heading-l">London Trading Company</h2>
+<form action="/doa-alt/dashboard/index" method="POST">
+        <table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Permission</th>
+      <th scope="col" class="govuk-table__header">Status</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Imports of products, animals, food and feed service</td>
+      <td class="govuk-table__cell">Allowed</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Apply for a phytosanitary certificate</td>
+      <td class="govuk-table__cell">Denied</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Export health certificates</td>
+      <td class="govuk-table__cell">Allowed</td>
+    </tr>
+  </tbody>
+</table>
+<input type="hidden" name="name" value=""/>
+
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+</form>
+      </div>
+
+
+
+
+    </div>
+  </div>
+
+{% endblock %}

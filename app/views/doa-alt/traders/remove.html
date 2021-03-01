@@ -1,0 +1,56 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">
+      Darling Building Services Ltd
+      </span>
+        <h1 class="govuk-heading-xl">Remove association</h1>
+        <div class="govuk-form-group">
+          <form action="/delete-trader-alt" method="POST">
+  <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <h1 class="govuk-fieldset__heading">
+        Are you sure you want to remove the association with London Trading Company?
+      </h1>
+    </legend>
+    <div class="govuk-radios govuk-radios--inline">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="remove-association-yes" name="remove-association" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="remove-association-yes">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="remove-association-no" name="remove-association" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="remove-association-no">
+          No
+        </label>
+      </div>
+    </div>
+
+    <input class="govuk-button govuk-!-margin-top-6"
+           type="submit"
+           value="Save and continue"
+           >
+
+  </fieldset>
+  </form>
+</div>
+      </div>
+
+
+
+
+    </div>
+  </div>
+
+{% endblock %}

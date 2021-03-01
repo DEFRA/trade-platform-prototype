@@ -1,0 +1,64 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+<style type="text/css">
+  .interrupt-panel {
+    width: 100%;
+    padding: 30px;
+    background: #005ea5;
+    color: #fff;
+}
+.heading-xlarge {
+    font-family: "nta",Arial,sans-serif;
+    font-weight: 700;
+    text-transform: none;
+    font-size: 32px;
+    line-height: 1.09375;
+    margin-top: .46875em;
+    margin-bottom: .9375em;
+}
+@media (min-width: 601px)
+.heading-xlarge {
+    font-size: 48px;
+    line-height: 1.04167;
+    margin-top: .625em;
+    margin-bottom: 1.25em;
+}
+
+.white {
+  color #fff !important;
+}
+
+
+.interrupt-panel a, .interrupt-panel a:active, .interrupt-panel a:link, .interrupt-panel a:visited {
+    color: #fff;
+}
+
+
+
+  </style>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="/doa/dashboard/index">
+    <div class="interrupt-panel">
+      <h1 class="heading-xlarge">Your agent code</h1>
+
+        <p style="color: #fff;">Your agent code is <strong>187263</strong>.</p>
+        <p style="color: #fff;">You should make a note of this code.</p>
+        <p style="color: #fff;">Your clients will need to use this code to authorise your organisation to act as their agent.</p>
+
+<input type="hidden" name="name" value=""/>
+        <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+    Save and continue
+  </button>
+  </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="POST" action="/set-organisation-type">
+    <div class="govuk-form-group">
+<fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+
+    <h1 class="govuk-fieldset__heading">
+      Does your organisation represent importers and/or exporters by acting as their agent?
+    </h1>
+  </legend>
+
+  <div class="govuk-radios govuk-radios--inline">
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="act-as-agent-yes" name="act-as-agent" type="radio" value="Yes">
+      <label class="govuk-label govuk-radios__label" for="act-as-agent-yes">
+        Yes
+      </label>
+    </div>
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="act-as-agent-no" name="act-as-agent" type="radio" value="No">
+      <label class="govuk-label govuk-radios__label" for="act-as-agent-no">
+        No
+      </label>
+    </div>
+  </div>
+
+</fieldset>
+</div>
+<input type="hidden" name="name" value=""/>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
+</form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-form-group">
+        <form method="POST">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+
+            <h1 class="govuk-fieldset__heading">
+            Confirm that you will act as an agent
+            </h1>
+          </legend>
+          <p class="govuk-body">I understand that by using this service importers and exporters will be able to authorise me to act on their behalf. My details as an agent will be displayed in a list and will be visible to importers and exporters.</p>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="organisation-type-trader" name="organisation-type" type="checkbox" value="mines">
+              <label class="govuk-label govuk-checkboxes__label" for="organisation-type-agent">
+                I confirm that I have read and accept the above statement.
+              </label>
+
+            </div>
+
+
+        </fieldset>
+
+      </div>
+      <input type="hidden" name="name" value=""/>
+
+                <button class="govuk-button" data-module="govuk-button">
+                  Save and continue
+                </button>
+</form>
+
+    </div>
+  </div>
+
+{% endblock %}
