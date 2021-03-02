@@ -1,0 +1,59 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">
+      Darling Building Services Ltd
+      </span>
+        <h1 class="govuk-heading-xl">Remove association</h1>
+        <div class="govuk-form-group">
+          <form action="/delete-agent-radio" method="POST">
+  <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <h1 class="govuk-fieldset__heading">
+        Are you sure you want to remove the association with Exports UK?
+      </h1>
+    </legend>
+    <div id="remove-agent-association-hint" class="govuk-hint">
+      This will mean you no longer represent this business.
+    </div>
+    <div class="govuk-radios govuk-radios--inline">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="remove-agent-association-yes" name="remove-agent-association" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="remove-agent-association-yes">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="remove-agent-association-no" name="remove-agent-association" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="remove-agent-association-no">
+          No
+        </label>
+      </div>
+    </div>
+
+    <input class="govuk-button govuk-!-margin-top-6"
+           type="submit"
+           value="Save and continue"
+           >
+
+  </fieldset>
+  </form>
+</div>
+      </div>
+
+
+
+
+    </div>
+  </div>
+
+{% endblock %}

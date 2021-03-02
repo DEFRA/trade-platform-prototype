@@ -1,0 +1,56 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-form-group">
+        <form action="/organisation-type-radio" method="POST">
+
+
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                    What are you trying to do?
+                </h1>
+              </legend>
+              <div class="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="organisation-type-trader" name="organisation-type-selection" type="radio" value="Trader">
+                  <label class="govuk-label govuk-radios__label" for="organisation-type-trader">
+                      I want to authorise an agent to act for my business
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="organisation-type-agent" name="organisation-type-selection" type="radio" value="Agent">
+                  <label class="govuk-label govuk-radios__label" for="organisation-type-agent">
+                    I am an agent who wants authority to act on behalf of other businesses
+                  </label>
+                </div>
+              </div>
+
+            </fieldset>
+
+
+
+
+
+        
+
+      </div>
+      <input type="hidden" name="name" value=""/>
+
+                <button class="govuk-button" data-module="govuk-button">
+                  Save and continue
+                </button>
+</form>
+
+    </div>
+  </div>
+
+{% endblock %}

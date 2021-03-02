@@ -1,0 +1,59 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <span class="govuk-caption-l">
+    Darling Building Services Ltd
+    </span>
+      <h1 class="govuk-heading-xl">Add an agent</h1>
+      <div class="govuk-form-group">
+        <form action="/doa-add-agent-radio" method="POST">
+<fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+    <h1 class="govuk-fieldset__heading">
+      Is this the agent?
+    </h1>
+  </legend>
+  <p class="govuk-body"><span class="govuk-!-font-weight-bold">Agent name:</span>&nbsp;&nbsp;&nbsp;Exports UK</p>
+  <div class="govuk-radios govuk-radios--inline">
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="add-agent-association-yes" name="add-agent-association" type="radio" value="yes">
+      <label class="govuk-label govuk-radios__label" for="add-agent-association-yes">
+        Yes
+      </label>
+    </div>
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="add-agent-association-no" name="add-agent-association" type="radio" value="no">
+      <label class="govuk-label govuk-radios__label" for="add-agent-association-no">
+        No
+      </label>
+    </div>
+  </div>
+
+  <input class="govuk-button govuk-!-margin-top-6"
+         type="submit"
+         value="Save and continue"
+         >
+
+</fieldset>
+</form>
+</div>
+    </div>
+
+
+
+
+  </div>
+</div>
+
+{% endblock %}

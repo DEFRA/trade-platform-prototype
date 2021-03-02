@@ -1,0 +1,106 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <span class="govuk-caption-l">
+      Darling Building Services Ltd
+      </span>
+        <h1 class="govuk-heading-xl">Manage your authorisations</h1>
+
+{% if trader %}
+        <h2 class="govuk-heading-l">Agents acting on your behalf</h2>
+
+  {% if agentadded %}
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Organisation name</th>
+      <th scope="col" class="govuk-table__header">Actions</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">Exports UK</td>
+      <td class="govuk-table__cell"><a href="/doa-radio/agents/view-permissions">Manage permissions</a><br/><a href="/doa-radio/agents/remove">Remove association</a></td>
+    </tr>
+  </tbody>
+</table>
+<p class="govuk-body"><a href="javascript:alert('Not in prototype!');">Agents authorised to represent you</a></p>
+ {% else %}
+<p class="govuk-body">You have not yet authorised any agents to act on behalf of your business.</p>
+<form action="/doa-radio/agents/add" method="POST">
+  <input type="hidden" name="name" value=""/>
+<button class="govuk-button" data-module="govuk-button">
+Add an agent
+</button>
+</form>
+{% endif %}
+{% endif %}
+
+  {% if agent %}
+        <h2 class="govuk-heading-l govuk-!-margin-top-6">Businesses you are authorised to represent</h2>
+        <div class="govuk-inset-text">
+  <p class="govuk-body">Your agent code is <strong>187263</strong>.</p>
+  <p class="govuk-body">Give this code to any business that wants to authorise you to act on their behalf.</p>
+</div>
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Organisation name</th>
+              <th scope="col" class="govuk-table__header">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            {% if activetraders %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">London Trading Company</td>
+              <td class="govuk-table__cell"><a href="/doa-radio/traders/">View permissions</a><br/><a href="/doa-radio/traders/remove">Stop representing this business</a></td>
+            </tr>
+            {% endif %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Exports 123</td>
+              <td class="govuk-table__cell"><a href="javascript:alert('Not in prototype!')">View permissions</a><br/><a href="javascript:alert('Not in prototype!')">Stop representing this busines</a></td>
+            </tr>
+          </tbody>
+        </table>
+{% if reviewmanually %}
+        <h2 class="govuk-heading-m govuk-!-margin-top-6">Requests for representation</h2>
+
+        {% if activerequests %}
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Organisation name</th>
+              <th scope="col" class="govuk-table__header">Actions</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">Mega Importers</td>
+              <td class="govuk-table__cell"><a href="/doa-radio/requests/review">Review request</a></td>
+            </tr>
+          </tbody>
+        </table>
+        {% else %}
+        <p class="govuk-body">You have no requests to represent an organisation. </p>
+        {% endif %}
+{% endif %}
+        <p><a href="/doa-radio/enrolment/edit-auto-accept">Manage request preferences</a></p>
+{% endif %}
+
+      </div>
+
+
+
+
+    </div>
+  </div>
+
+{% endblock %}

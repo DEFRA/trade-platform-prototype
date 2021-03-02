@@ -1,0 +1,47 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-form-group">
+        <form method="POST" action="/doa-radio/dashboard/index">
+        <fieldset class="govuk-fieldset" aria-describedby="waste-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <span class="govuk-caption-l">
+            Darling Building Services Ltd
+            </span>
+            <h1 class="govuk-fieldset__heading">
+            Confirm delegation
+            </h1>
+          </legend>
+          <p class="govuk-body">I understand that allowing an agent to operate on my behalf means they will be able to view and complete export applications and import notifications for my business. I understand that I am responsible for any charges an agent may incur on my behalf.</p>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="organisation-type-trader" name="organisation-type" type="checkbox" value="mines">
+              <label class="govuk-label govuk-checkboxes__label" for="organisation-type-agent">
+                I confirm that I have read and accept the above statement.
+              </label>
+
+            </div>
+
+
+        </fieldset>
+
+      </div>
+      <input type="hidden" name="name" value=""/>
+
+                <button class="govuk-button" data-module="govuk-button">
+                  Save and continue
+                </button>
+</form>
+
+    </div>
+  </div>
+
+{% endblock %}

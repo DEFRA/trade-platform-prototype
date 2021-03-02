@@ -12,6 +12,160 @@ var activerequests;
 var reviewmanually;
 // Add your routes here - above the module.exports line
 
+//DOA-RADIO
+//Before you Start
+router.get('/doa-radio/enrolment/trader-or-agent', function (req, res) {
+  activetraders=true; //shows the additional trader when added
+  agentadded=false; //set no agents added for initial load
+  activerequests=true;
+  res.render('doa-radio/enrolment/trader-or-agent', { activetraders, agentadded })
+})
+router.get('/doa-radio/enrolment/act-as-agent', function (req, res) {
+  activetraders=true; //shows the additional trader when added
+  agentadded=false; //set no agents added for initial load
+  activerequests=true;
+  res.render('doa-radio/enrolment/act-as-agent', { activetraders, agentadded })
+})
+//REMOVE A Trader
+router.post('/delete-trader-radio', function (req, res) {
+  if (req.session.data['remove-association']=="yes"){
+    activetraders= false;
+  }
+  else {
+    activetraders= true;
+  }
+  res.redirect('/doa-radio/dashboard/index')
+})
+
+router.get('/doa-radio/dashboard/index', function (req, res) {
+  res.render('doa-radio/dashboard/index', { activetraders, agentadded, agent, trader, activerequests, reviewmanually })
+})
+
+//ADD an agent
+router.post('/doa-radio/add-agent', function (req, res) {
+  res.redirect('/doa-radio/agents/add')
+})
+
+router.post('/doa-radio/agents/add', function (req, res) {
+req.session.searchresults = true;
+searchresults = req.session.searchresults;
+  res.redirect('/doa-radio/agents/searchresults')
+})
+
+router.get('/doa-radio/agents/searchresults', function (req, res) {
+  res.render('doa-radio/agents/add', { searchresults })
+})
+
+router.post('/doa-radio/agents/set-permissions', function (req, res) {
+  req.session.agentadded = true;
+  agentadded = true;
+  res.redirect('/doa-radio/agents/disclaimer')
+})
+
+router.post('/doa-radio/agents/edit-permissions', function (req, res) {
+  res.redirect('/doa-radio/agents/view-permissions')
+})
+
+//Add agent new
+router.post('/doa-add-agent-radio', function (req, res) {
+  if (req.session.data['add-agent-association']=="yes"){
+    agentadded= true;
+    res.redirect('/doa-radio/agents/set-permissions')
+  }
+  else {
+    agentadded= false;
+    res.redirect('/doa-radio/dashboard/index')
+  }
+
+})
+
+//REMOVE an agent
+router.post('/delete-agent-radio', function (req, res) {
+  if (req.session.data['remove-agent-association']=="yes"){
+    agentadded= false;
+  }
+  else {
+    agentadded= true;
+  }
+  res.redirect('/doa-radio/dashboard/index')
+})
+
+//PREFERENCES
+router.post('/organisation-type-radio', function (req, res) {
+  organisationtype = req.session.data ['organisation-type-selection'];
+  agent = organisationtype.includes("Agent");
+  trader = organisationtype.includes("Trader");
+  if (trader==true && agent==true) {
+    res.redirect('/doa-radio/enrolment/agent-agreement')
+  }
+  if (trader==true && agent==false){
+    res.redirect('/doa-radio/dashboard/index')
+  }
+  if (trader==false && agent==true){
+    res.redirect('/doa-radio/enrolment/agent-agreement')
+  }
+})
+
+router.post('/set-organisation-type-radio', function (req, res) {
+  actasagent = req.session.data ['act-as-agent'];
+  if (actasagent == "Yes"){
+    agent = true;
+    trader = true;
+    console.log(agent);
+    console.log(trader);
+    res.redirect('/doa-radio/enrolment/trader-agreement')
+  }
+  else {
+    agent = false;
+    trader = true;
+    console.log(agent);
+    console.log(trader);
+    res.redirect('/doa-radio/enrolment/trader-agreement')
+  }
+})
+
+router.post('/doa-radio/enrolment/agent-agreement', function (req, res) {
+  res.redirect('/doa-radio/enrolment/auto-accept')
+
+})
+
+router.post('/doa-radio/enrolment/trader-agreement', function (req, res) {
+  if (agent==true){
+    res.redirect('/doa-radio/enrolment/agent-agreement')
+  }
+  else {
+    res.redirect('/doa-radio/dashboard/index')
+  }
+})
+
+//Edit preferences
+router.post('/edit-organisation-type-radio', function (req, res) {
+  organisationtype = req.session.data ['organisation-type-selection'];
+  agent = organisationtype.includes("Agent");
+  trader = organisationtype.includes("Trader");
+  console.log(organisationtype);
+    res.redirect('/doa-radio/dashboard/index')
+})
+
+//Representation requests
+router.post('/review-representation-radio', function (req, res) {
+activerequests = false;
+    res.redirect('/doa-radio/dashboard/index')
+})
+
+router.post('/auto-accept-radio', function (req, res) {
+  if (req.session.data['auto-accept-delegation']=="Yes"){
+    activerequests = false;
+    reviewmanually = false;
+  }
+  else {
+    activerequests = true;
+    reviewmanually = true;
+
+  }
+    res.redirect('/doa-radio/enrolment/agent-code')
+})
+
 //DOA- ALT
 router.get('/doa-alt/enrolment/trader-or-agent', function (req, res) {
   activetraders=true; //shows the additional trader when added
