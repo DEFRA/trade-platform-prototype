@@ -46,10 +46,10 @@ router.post('/doa-radio/add-agent', function (req, res) {
   res.redirect('/doa-radio/agents/add')
 })
 
-router.post('/doa-radio/agents/add', function (req, res) {
+router.post('/submit-agent', function (req, res) {
 req.session.searchresults = true;
 searchresults = req.session.searchresults;
-  res.redirect('/doa-radio/agents/searchresults')
+  res.redirect('/doa-radio/agents/add-confirmation')
 })
 
 router.get('/doa-radio/agents/searchresults', function (req, res) {
